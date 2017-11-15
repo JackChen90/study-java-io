@@ -1,0 +1,10 @@
+spring:
+  aplication:
+    name: study-java-io
+
+server:
+  port: 9090
+
+#file location
+api:
+  path: /distinc_api.txt
