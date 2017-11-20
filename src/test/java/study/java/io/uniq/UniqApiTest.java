@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -41,5 +42,16 @@ public class UniqApiTest {
 
 		boolean flag = Pattern.matches(regex, "http://cmsnspre.cmgame.com");
 		System.out.println(flag);
+	}
+
+	@Test
+	public void regex2Test(){
+		String input = "Arline ate eight apples and one orange while Anita hadn't any";
+		//(?i)表示忽略大小写
+		String regex = "(?i)((^[aeiou])|(\\s+[aeiou]))\\w+?[aeiou]\\b";
+		Matcher matcher = Pattern.compile(regex).matcher(input);
+		while (matcher.find()){
+			System.out.println(matcher.group()+" ");
+		}
 	}
 }
